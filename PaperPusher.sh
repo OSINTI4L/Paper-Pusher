@@ -28,7 +28,7 @@ sleep 1
 echo "Scanning subnet: $subnet.0/24.."
 IP=$(nmap $subnet.0/24 -p 9100 --open | awk '/Nmap scan report/ {print $5}')
 
-
+# If port 9100, spam, else exit:
 if [[ -n $IP ]]; then
 	echo -e "🖨 Printer found at: $IP, port 9100 exposed. 🖨\n"
 	sleep 1
