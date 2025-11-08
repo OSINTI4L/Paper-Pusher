@@ -24,6 +24,7 @@ sleep 1
 subnet=$(hostname -I | awk '{print $1}' | awk -F'.' '{print $1"."$2"."$3}')
 echo -e "Subnet: $subnet found!\nPresumed netmask: 255.255.255.0\n"
 sleep 1
+
 # Subnet scan for port 9100:
 echo "Scanning subnet: $subnet.0/24.."
 IP=$(nmap $subnet.0/24 -p 9100 --open | awk '/Nmap scan report/ {print $5}')
