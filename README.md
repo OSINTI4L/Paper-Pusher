@@ -1,7 +1,7 @@
 # Paper-Pusher
 **A Bash script for sending spam to WiFi connected printers over LAN.**
 ---
-Paper-Pusher uses `Nmap` to scan the LAN subnet and find paper printers with port 9100 open and sends spam (in an infinite loop) to be printed via RAW printing with Netcat. You can enter text to be printed or leave blank to dispense blank paper only. The script assumes that the subnet netmask is: `255.255.255.0`.
+Paper-Pusher uses `Nmap` to scan the LAN subnet and find paper printers with port 9100 open and sends spam (in an infinite loop) to be printed via RAW printing with `Netcat`. You can enter text to be printed or leave blank to dispense blank paper only. The script assumes that the subnet netmask is: `255.255.255.0`.
 
 **Dependencies:**
   - `Linux`
