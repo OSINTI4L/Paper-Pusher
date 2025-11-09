@@ -27,7 +27,7 @@ sleep 1
 
 # Subnet scan for port 9100:
 echo "Scanning subnet: $subnet.0/24.."
-IP=$(nmap $subnet.0/24 -p 9100 --open | awk '/Nmap scan report/ {print $5}')
+IP=$(nmap $subnet.0/24 -p 9100 --open | awk '/Nmap scan report/ {print $NF}' | tr -d '()')
 
 # If port 9100, spam, else exit:
 if [[ -n $IP ]]; then
@@ -35,13 +35,38 @@ if [[ -n $IP ]]; then
 	sleep 1
 	echo -e "Enter the text to be printed\n(leave blank to dispense blank pages)"
 	read -p "Enter text: " printtext
-	sleep 1
-		while true
+	sleep .5
+	echo -e "Text to be printed: $printtext\n"
+	sleep .5
+	echo -e "How many pages would you like to dispense?"
+	read -p "Number of pages: " pagecount
+	sleep .5
+	echo "Number of pages selected: $pagecount"
+	sleep .5
+		echo -e "\nSending job to printer (∩ ° ʖ °)⊃━☆ﾟ-.   *.*.*.*.\n"
+		for i in $(seq $pagecount)
 		do
-		echo -e "\nSending commands to printer (∩ ° ʖ °)⊃━☆ﾟ.   *.*.*.*.*.*\n(Ctrl+C to stop)\n"
- 		echo -e "$printtext\n\f" | nc -q 1 $IP 9100
- 		echo "Commands sent successfully! ☚ (<‿<)☚"
-		done
+		echo -e "$printtext\n\f"
+		done | nc -q 1 $IP 9100
+ 		echo "Job sent successfully! ☚ (<‿<)☚"
+ 		sleep .5
+ 		echo -e "Time to clean up the floor \(^-^)/\n
+It's dangerous to go alone! take this.\n
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢤⣤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡈⠻⠇⢸⣷⣶⣦⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⣿⣶⣶⣿⣿⣿⣿⣿⣿⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⡿⠿⠟⠛⠋⣉⣤⣴⣶⡀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢈⣁⣠⣤⣤⣴⣶⣿⣿⠿⠿⠛⠋⣁⡀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠛⠛⠛⠋⣉⣉⣠⣤⣴⣶⣾⣿⣿⣷⡀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣄⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⢦⣄⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠂⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⡏⣿⣿⣿⣿⡿⣿⣿⢿⣿⡿⢿⣿⠻⡿⠛⠁⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣠⣿⡿⠀⡟⢹⣿⡿⠃⠸⠿⠀⠙⠃⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+"
 else
 	echo "No printers found with port 9100 exposed ¯\_(ツ)_/¯ exiting."
 fi
