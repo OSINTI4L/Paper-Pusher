@@ -8,7 +8,7 @@
 
 </div>
 
-Paper-Pusher uses `Nmap` to scan the LAN subnet and find paper printers with port 9100 open and sends spam to be printed via RAW printing with `Netcat`. You can enter text to be printed when prompted or leave blank to dispense blank paper only. You will also be prompted for how many pages you would like to be printed. The script assumes that the subnet netmask is: `255.255.255.0`.
+Paper-Pusher uses `Nmap` to scan the LAN subnet to find paper printers with port 9100 open and sends spam to be printed via RAW printing with `Netcat`. You can enter text to be printed when prompted or leave blank to dispense blank paper only. You will also be prompted for how many pages you would like to be printed. The script assumes that the subnet netmask is: `255.255.255.0`.
 
 **Dependencies:**
   - `Linux`
