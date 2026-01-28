@@ -31,4 +31,4 @@ Shout out to SpuriousIndices aka the Printer God, for teaching me how to mess wi
 ---
 
 # Hak5 WiFi Pineapple Pager
-A port of this project has been made for the Hak5 WiFi Pineapple Pager and can be found [here](https://github.com/OSINTI4L/Paper-Pusher/blob/main/PineapplePagerPayload.sh).
+A port of this project has been made for the [Hak5 WiFi Pineapple Pager](https://shop.hak5.org/products/pager) and can be found [here](https://github.com/OSINTI4L/Paper-Pusher/blob/main/PineapplePagerPayload.sh).
