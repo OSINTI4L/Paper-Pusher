@@ -28,7 +28,10 @@ If you have multiple printers on the LAN it might break the script. I don't have
 
 Shout out to SpuriousIndices aka the Printer God, for teaching me how to mess with printers.
 
----
-
+<div align="center">
+  
 # Hak5 WiFi Pineapple Pager
+
+</div>
+
 A port of this project has been made for the [Hak5 WiFi Pineapple Pager](https://shop.hak5.org/products/pager) and can be found [here](https://github.com/OSINTI4L/Paper-Pusher/blob/main/PineapplePagerPayload.sh).
