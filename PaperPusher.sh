@@ -1,5 +1,5 @@
 #!/bin/bash
-# PAPER PUSHER v2
+#Paper-Pusher v2
 # Nmap scans the LAN subnet and finds paper printers with port 9100 open and sends spam to be printed via RAW printing with Netcat. The script assumes that the subnet netmask is: 255.255.255.0. All automated, just run the script, sit back, and relax.
 # Dependencies: Linux, nmap, netcat.
 # Shout out to SpuriousIndices aka the Printer God, for teaching me how to mess with printers.
